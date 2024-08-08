@@ -1,0 +1,8 @@
+BEGIN
+FOR X IN (SELECT
+table_name  
+from user_tables 
+where table_name = 'PEDIDO_NOVO') LOOP 
+EXECUTE IMMEDIATE 'DROP TABLE' || X.TABLE_NAME || 'CASCADE CONSTRAINTS';
+END LOOP;
+END;
